@@ -1,4 +1,4 @@
-FROM althack/ros2:humble-dev 
+FROM althack/ros2:humble-full-2025-02-01
 
 # ** [Optional] Uncomment this section to install additional packages. **
 #
