@@ -242,6 +242,13 @@
             "type": "shell",
             "command": "python3 .devcontainer/repos_to_submodules.py",
             "problemMatcher": []
+        },
+        {
+            "label": "update dependance",
+            "detail": "update dependance",
+            "type": "shell",
+            "command": "./tools/lib_update.sh",
+            "problemMatcher": []
         }
     ],
     "inputs": [
