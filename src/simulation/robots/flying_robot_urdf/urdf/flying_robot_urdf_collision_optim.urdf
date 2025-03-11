@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0"?>
 <!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
      Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
@@ -91,7 +91,7 @@
     </collision>
   </link>
   <joint
-    name="leftfront"
+    name="jleftfront"
     type="continuous">
     <origin
       xyz="0.19991 0.20003 -0.0004"
@@ -148,7 +148,7 @@
     </collision>
   </link>
   <joint
-    name="bigleglf"
+    name="jbigleglf"
     type="continuous">
     <origin
       xyz="0.095008 -0.02502 -0.0421"
@@ -206,7 +206,7 @@
     </collision>
   </link>
   <joint
-    name="smallleglf"
+    name="jsmallleglf"
     type="continuous">
     <origin
       xyz="0.35 0 -0.025"
@@ -263,7 +263,7 @@
     </collision>
   </link>
   <joint
-    name="rightfront"
+    name="jrightfront"
     type="continuous">
     <origin
       xyz="0.19991 -0.20001 -0.0004"
@@ -320,7 +320,7 @@
     </collision>
   </link>
   <joint
-    name="biglegrf"
+    name="jbiglegrf"
     type="continuous">
     <origin
       xyz="0.095008 -0.024981 -0.0421"
@@ -378,7 +378,7 @@
     </collision>
   </link>
   <joint
-    name="smalllegrf"
+    name="jsmalllegrf"
     type="continuous">
     <origin
       xyz="0.35 0 -0.025"
@@ -435,7 +435,7 @@
     </collision>
   </link>
   <joint
-    name="leftbehind"
+    name="jleftbehind"
     type="continuous">
     <origin
       xyz="-0.20007 0.20003 -0.0004"
@@ -492,7 +492,7 @@
     </collision>
   </link>
   <joint
-    name="bigleglb"
+    name="jbigleglb"
     type="continuous">
     <origin
       xyz="-0.095008 0.024981 -0.0421"
@@ -550,7 +550,7 @@
     </collision>
   </link>
   <joint
-    name="smallleglb"
+    name="jsmallleglb"
     type="continuous">
     <origin
       xyz="0.35 0 -0.025"
@@ -571,17 +571,17 @@
     name="rightbehind">
     <inertial>
       <origin
-        xyz="0 0 0"
+        xyz="-0.0796421726505739 -1.94546338597723E-05 -0.0426060611978041"
         rpy="0 0 0" />
       <mass
-        value="0" />
+        value="0.798414527576566" />
       <inertia
-        ixx="0"
-        ixy="0"
-        ixz="0"
-        iyy="0"
-        iyz="0"
-        izz="0" />
+        ixx="0.000382633435194025"
+        ixy="-1.72636640408571E-07"
+        ixz="4.57824406237387E-06"
+        iyy="0.000744230661608469"
+        iyz="4.74958965952203E-07"
+        izz="0.000480300561467964" />
     </inertial>
     <visual>
       <origin
@@ -607,7 +607,7 @@
     </collision>
   </link>
   <joint
-    name="rightbehind"
+    name="jrightbehind"
     type="continuous">
     <origin
       xyz="-0.20007 -0.19997 -0.0004"
@@ -664,7 +664,7 @@
     </collision>
   </link>
   <joint
-    name="biglegrb"
+    name="jbiglegrb"
     type="continuous">
     <origin
       xyz="-0.095008 0.024981 -0.0421"
@@ -722,7 +722,7 @@
     </collision>
   </link>
   <joint
-    name="smalllegrb"
+    name="jsmalllegrb"
     type="continuous">
     <origin
       xyz="0.35 0 -0.025"
