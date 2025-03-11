@@ -1,9 +1,30 @@
+# 配置环境相关
+# 一键安装Ros humble相关（如果ros依赖有问题）
+wget http://fishros.com/install -O fishros && . fishros
+
+# 运行`tools/lib_update.sh`脚本进行依赖安装
+
+# 安装gazebo
+sudo apt-get install gazebo
+# 如要运行仿真，需将mesh文件复制到.gazebo/models/...的对应文件夹里
+./tools/install_simulation.sh 
+
+
+# 常用命令
+# source ros2和项目，source指令也可以写在~/.bashrc里
 # source ros2
 source /opt/ros/humble/setup.bash
 # source install
 source install/setup.bash
 
-# 运行`tools/lib_update.sh`脚本进行依赖安装
+# 编译项目
+./build.sh
+# 安装新软件包
+colcon build
+
+
+# 启动 仿真
+ros2 launch simulation gazebo.launch.py 
 
 # 查看gazebo进程
 ps -aux| grep gazebo
@@ -12,18 +33,11 @@ kill -9 <刚刚的gazebo进程>
 tools/reset_simulation.sh
 
 
-# 启动 仿真
-ros2 launch simulation gazebo.launch.py 
 
 
-# 一键安装Ros humble相关（如果ros依赖有问题）
-wget http://fishros.com/install -O fishros && . fishros
 
-# 安装gazebo
-sudo apt-get install gazebo
 
-# 编译项目
-./build.sh
+
 
 
 

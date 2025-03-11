@@ -32,6 +32,10 @@ install(DIRECTORY robots/g1_description
   DESTINATION share/${PROJECT_NAME}/robots
 )
 
+install(DIRECTORY robots/flying_robot_urdf
+  DESTINATION share/${PROJECT_NAME}/robots
+)
+
 # install(DIRECTORY robots/g1_description
 #   DESTINATION share/${PROJECT_NAME}/robots
 # )

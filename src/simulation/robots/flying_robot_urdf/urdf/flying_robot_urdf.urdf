@@ -1,0 +1,743 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="flying_robot_urdf">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.00097602 -0.00079334 -0.045696"
+        rpy="0 0 0" />
+      <mass
+        value="16.042" />
+      <inertia
+        ixx="0.10987"
+        ixy="-0.0036184"
+        ixz="-3.3898E-07"
+        iyy="0.10984"
+        iyz="-1.8961E-06"
+        izz="0.11597" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://flying_robot_urdf/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0.78039 0.59216 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://flying_robot_urdf/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="leftfront">
+    <inertial>
+      <origin
+        xyz="0.0796419142918207 -1.95549848725773E-05 -0.0426060611978254"
+        rpy="0 0 0" />
+      <mass
+        value="0.798414527575896" />
+      <inertia
+        ixx="0.000382633435194024"
+        ixy="-1.72636640408826E-07"
+        ixz="-4.57824406237476E-06"
+        iyy="0.000744230661608469"
+        iyz="-4.74958965953524E-07"
+        izz="0.000480300561467963" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://flying_robot_urdf/meshes/leftfront.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.776470588235294 0.756862745098039 0.737254901960784 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://flying_robot_urdf/meshes/leftfront.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="leftfront"
+    type="continuous">
+    <origin
+      xyz="0.19991 0.20003 -0.0004"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="leftfront" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="bigleglf">
+    <inertial>
+      <origin
+        xyz="0.129390501059899 0.0121167662196758 -0.0248173656521"
+        rpy="0 0 0" />
+      <mass
+        value="0.272834380727128" />
+      <inertia
+        ixx="5.84020775760563E-05"
+        ixy="6.56865031416697E-06"
+        ixz="1.19512015154443E-05"
+        iyy="0.00113636455002395"
+        iyz="-3.51662964131401E-06"
+        izz="0.00115026261971198" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://flying_robot_urdf/meshes/bigleglf.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.498039215686275 0.670588235294118 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://flying_robot_urdf/meshes/bigleglf.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="bigleglf"
+    type="continuous">
+    <origin
+      xyz="0.095008 -0.02502 -0.0421"
+      rpy="1.5708 0.68715 0" />
+    <parent
+      link="leftfront" />
+    <child
+      link="bigleglf" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="smallleglf">
+    <inertial>
+      <origin
+        xyz="0.141825205707711 0.0184964056882044 5.98999932988065E-10"
+        rpy="0 0 0" />
+      <mass
+        value="0.191699347309648" />
+      <inertia
+        ixx="3.73472638523918E-05"
+        ixy="-2.30315594537506E-05"
+        ixz="5.49986327778361E-12"
+        iyy="0.000541936612544305"
+        iyz="5.54753263786826E-12"
+        izz="0.000561661834710346" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://flying_robot_urdf/meshes/smallleglf.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0.654901960784314 0.756862745098039 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://flying_robot_urdf/meshes/smallleglf.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="smallleglf"
+    type="continuous">
+    <origin
+      xyz="0.35 0 -0.025"
+      rpy="0 0 -1.4916" />
+    <parent
+      link="bigleglf" />
+    <child
+      link="smallleglf" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="rightfront">
+    <inertial>
+      <origin
+        xyz="0.0796421726505553 1.94546339800927E-05 -0.0426060611978287"
+        rpy="0 0 0" />
+      <mass
+        value="0.798414527576588" />
+      <inertia
+        ixx="0.000382633435194025"
+        ixy="-1.72636640408504E-07"
+        ixz="-4.57824406237422E-06"
+        iyy="0.000744230661608464"
+        iyz="-4.74958965952894E-07"
+        izz="0.000480300561467965" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://flying_robot_urdf/meshes/rightfront.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.776470588235294 0.756862745098039 0.737254901960784 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://flying_robot_urdf/meshes/rightfront.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rightfront"
+    type="continuous">
+    <origin
+      xyz="0.19991 -0.20001 -0.0004"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="rightfront" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="biglegrf">
+    <inertial>
+      <origin
+        xyz="0.129390500850725 0.012116766176949 -0.02481736564337"
+        rpy="0 0 0" />
+      <mass
+        value="0.272834381042562" />
+      <inertia
+        ixx="5.84020775921114E-05"
+        ixy="6.56865022173599E-06"
+        ixz="1.19512015824109E-05"
+        iyy="0.0011363645503615"
+        iyz="-3.51662962193567E-06"
+        izz="0.00115026262003777" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://flying_robot_urdf/meshes/biglegrf.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.498039215686275 0.670588235294118 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://flying_robot_urdf/meshes/biglegrf.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="biglegrf"
+    type="continuous">
+    <origin
+      xyz="0.095008 -0.024981 -0.0421"
+      rpy="1.5708 0.68715 0" />
+    <parent
+      link="rightfront" />
+    <child
+      link="biglegrf" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="smalllegrf">
+    <inertial>
+      <origin
+        xyz="0.141825202380367 0.0184964180115881 1.35155046876445E-08"
+        rpy="0 0 0" />
+      <mass
+        value="0.191699347309648" />
+      <inertia
+        ixx="3.73472638523918E-05"
+        ixy="-2.30315594537508E-05"
+        ixz="5.49986330352109E-12"
+        iyy="0.000541936612544305"
+        iyz="5.54753265638182E-12"
+        izz="0.000561661834710346" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://flying_robot_urdf/meshes/smalllegrf.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0.654901960784314 0.756862745098039 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://flying_robot_urdf/meshes/smalllegrf.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="smalllegrf"
+    type="continuous">
+    <origin
+      xyz="0.35 0 -0.025"
+      rpy="0 0 -1.4916" />
+    <parent
+      link="biglegrf" />
+    <child
+      link="smalllegrf" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="leftbehind">
+    <inertial>
+      <origin
+        xyz="-0.0796421726505739 -1.94546338597723E-05 -0.0426060611978041"
+        rpy="0 0 0" />
+      <mass
+        value="0.798414527576566" />
+      <inertia
+        ixx="0.000382633435194025"
+        ixy="-1.72636640408571E-07"
+        ixz="4.57824406237387E-06"
+        iyy="0.000744230661608469"
+        iyz="4.74958965952203E-07"
+        izz="0.000480300561467964" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://flying_robot_urdf/meshes/leftbehind.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.776470588235294 0.756862745098039 0.737254901960784 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://flying_robot_urdf/meshes/leftbehind.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="leftbehind"
+    type="continuous">
+    <origin
+      xyz="-0.20007 0.20003 -0.0004"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="leftbehind" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="bigleglb">
+    <inertial>
+      <origin
+        xyz="0.129390501073687 0.0121167665268781 -0.0248173656419603"
+        rpy="0 0 0" />
+      <mass
+        value="0.272834381042562" />
+      <inertia
+        ixx="5.84020775590164E-05"
+        ixy="6.56864750623974E-06"
+        ixz="1.19512015912714E-05"
+        iyy="0.0011363645503946"
+        iyz="-3.51662959182919E-06"
+        izz="0.00115026262003778" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://flying_robot_urdf/meshes/bigleglb.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.498039215686275 0.670588235294118 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://flying_robot_urdf/meshes/bigleglb.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="bigleglb"
+    type="continuous">
+    <origin
+      xyz="-0.095008 0.024981 -0.0421"
+      rpy="1.5708 0.68715 3.1416" />
+    <parent
+      link="leftbehind" />
+    <child
+      link="bigleglb" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="smallleglb">
+    <inertial>
+      <origin
+        xyz="0.141825204200351 0.0184964204010298 -5.10444286838663E-09"
+        rpy="0 0 0" />
+      <mass
+        value="0.191699347309648" />
+      <inertia
+        ixx="3.7347263950301E-05"
+        ixy="-2.30315605262759E-05"
+        ixz="5.49986320883689E-12"
+        iyy="0.000541936612446396"
+        iyz="5.54753267481388E-12"
+        izz="0.000561661834710346" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://flying_robot_urdf/meshes/smallleglb.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0.654901960784314 0.756862745098039 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://flying_robot_urdf/meshes/smallleglb.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="smallleglb"
+    type="continuous">
+    <origin
+      xyz="0.35 0 -0.025"
+      rpy="0 0 -1.4916" />
+    <parent
+      link="bigleglb" />
+    <child
+      link="smallleglb" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="rightbehind">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://flying_robot_urdf/meshes/rightbehind.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://flying_robot_urdf/meshes/rightbehind.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rightbehind"
+    type="continuous">
+    <origin
+      xyz="-0.20007 -0.19997 -0.0004"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="rightbehind" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="biglegrb">
+    <inertial>
+      <origin
+        xyz="0.129390500997052 0.0121167661972068 -0.0248173656565086"
+        rpy="0 0 0" />
+      <mass
+        value="0.272834380727127" />
+      <inertia
+        ixx="5.84020775760716E-05"
+        ixy="6.56865031416677E-06"
+        ixz="1.19512015154425E-05"
+        iyy="0.00113636455002396"
+        iyz="-3.51662964131387E-06"
+        izz="0.00115026261971198" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://flying_robot_urdf/meshes/biglegrb.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.498039215686275 0.670588235294118 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://flying_robot_urdf/meshes/biglegrb.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="biglegrb"
+    type="continuous">
+    <origin
+      xyz="-0.095008 0.024981 -0.0421"
+      rpy="1.5708 0.68715 3.1416" />
+    <parent
+      link="rightbehind" />
+    <child
+      link="biglegrb" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="smalllegrb">
+    <inertial>
+      <origin
+        xyz="0.141825202102729 0.0184964190369655 -5.1044384552501E-09"
+        rpy="0 0 0" />
+      <mass
+        value="0.191699347309649" />
+      <inertia
+        ixx="3.7347263852392E-05"
+        ixy="-2.30315594537508E-05"
+        ixz="5.49986327491897E-12"
+        iyy="0.000541936612544305"
+        iyz="5.54753261238498E-12"
+        izz="0.000561661834710346" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://flying_robot_urdf/meshes/smalllegrb.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0.654901960784314 0.756862745098039 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://flying_robot_urdf/meshes/smalllegrb.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="smalllegrb"
+    type="continuous">
+    <origin
+      xyz="0.35 0 -0.025"
+      rpy="0 0 -1.4916" />
+    <parent
+      link="biglegrb" />
+    <child
+      link="smalllegrb" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+</robot>

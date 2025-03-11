@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>flying_robot_urdf</name>
+  <version>1.1.0</version>
+  <description>This package contains a number of URDF tutorials.</description>
+  <maintainer email="TODO@email.com"></maintainer>
+
+  <license>BSD 3-clause</license>
+  <url>http://ros.org/wiki/urdf_tutorial</url>
+  <author email="TODO@email.com"></author>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <exec_depend>urdf_launch</exec_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+
+    <!-- Build tool dependencies -->
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <!-- Runtime dependencies -->
+  <depend>rclcpp</depend>
+  <!-- <depend>robot_state_publisher</depend> -->
+  <depend>rviz2</depend>
+  <!-- <depend>joint_state_publisher</depend> -->
+  <depend>gazebo_ros</depend>
+  <depend>ros2_control</depend>
+  <depend>ros2_controllers</depend>
+  <depend>ros2-message-filters</depend>
+  <depend>gazebo_ros2_control</depend>
+  <depend>gazebo_plugins</depend>
+  <depend>gazebo_dev</depend>
+  <!-- <depend>ros_gz_sim</depend> -->
+
+  <exec_depend>gazebo_msgs</exec_depend>
+
+  <!-- Test dependencies (optional) -->
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+    <gazebo_ros gazebo_model_path="${prefix}/.."/>
+  </export>
+</package>
