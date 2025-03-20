@@ -1,3 +1,5 @@
+# test_ocs2_nmpc+wbc on g1 robot
+
 # 配置环境相关
 # 一键安装Ros humble相关（如果ros依赖有问题）
 wget http://fishros.com/install -O fishros && . fishros
