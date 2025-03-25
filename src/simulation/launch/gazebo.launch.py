@@ -4,10 +4,12 @@ from launch.actions import (DeclareLaunchArgument, SetEnvironmentVariable,
                             IncludeLaunchDescription, SetLaunchConfiguration)
 from launch.substitutions import PathJoinSubstitution, LaunchConfiguration, TextSubstitution
 from launch_ros.actions import Node
+from launch.event_handlers import OnProcessExit
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 import os
 from launch.actions import ExecuteProcess, RegisterEventHandler
 
+import xacro
 # def generate_launch_description():
 #     return LaunchDescription([
 #         Node(
@@ -22,6 +24,11 @@ from launch.actions import ExecuteProcess, RegisterEventHandler
 
 def generate_launch_description():
 
+    mappings = {
+    "fix_robot": "false",
+    "self_collision":"false"
+    }
+
     sim_package = os.path.join(
         get_package_share_directory('simulation'))
     
@@ -30,22 +37,23 @@ def generate_launch_description():
                               'world',
                               'my_world.world')
     # # robot path
+    xacro_file = os.path.join(sim_package,
+        'robots',
+        'g1_description',
+        'g1_23dof.xacro'
+    )
 
-    # urdf_file = os.path.join(sim_package,
-    #     'robots',
-    #     'g1_description',
-    #     'g1_23dof.urdf'
-    # )
-    # with open(urdf_file, 'r') as infp:
-    #     robot_desc = infp.read()
-    
     urdf_file = os.path.join(sim_package,
         'robots',
-        'flying_robot_urdf',
-        'flying_robot_urdf.urdf'
+        'g1_description',
+        'g1_23dof.urdf'
     )
-    with open(urdf_file, 'r') as infp:
-        robot_desc = infp.read()
+    doc = xacro.process_file(xacro_file,mappings=mappings)
+    robot_desc = doc.toxml()
+    print(robot_desc)
+    # 打开文件进行写入，如果文件不存在会创建新文件
+    with open(urdf_file, 'w') as file:
+        file.write(doc.toprettyxml())
     
     start_gazebo_cmd = ExecuteProcess(
         cmd=['gazebo', world_path,'--verbose','-s', 'libgazebo_ros_init.so', '-s', 'libgazebo_ros_factory.so']
@@ -68,11 +76,37 @@ def generate_launch_description():
     #     arguments=['-entity', 'g1_robot', '-file', urdf_file],
     #     output='screen'
     # )
+    spawn_entity_node = Node(package='gazebo_ros', executable='spawn_entity.py',
+                        arguments=['-topic', 'robot_description',
+                                   '-entity', 'g1_robot',
+                                   ],
+                        output='screen')
+    # spawn_entity_node = Node(package='gazebo_ros', executable='spawn_entity.py',
+    #                     arguments=['-entity', 'g1_robot',
+    #                                '-file', urdf_file],
+    #                     output='screen')
+    
+    # node_joint_control_publisher = Node(
+    #     package='prototype_simulation',
+    #     executable='joint_control_node',
+    #     name='joint_control_publisher',
+    #     output='screen',
+    # )
+    # node_joint_control_publisher = Node(
+    #     package='simulation',
+    #     executable='joint_control_node',
+    #     name='joint_control_publisher',
+    #     output='screen',
+    # )
 
-    spawn_entity_node = Node(
-        package='gazebo_ros',
-        executable='spawn_entity.py',
-        arguments=['-entity', 'flying_robot', '-file', urdf_file],
+    load_joint_state_broadcaster = ExecuteProcess(
+        cmd=['ros2', 'control', 'load_controller', '--set-state', 'active',
+             'joint_state_broadcaster'],
+        output='screen'
+    )
+
+    load_joint_effort_controller = ExecuteProcess(
+        cmd=['ros2', 'control', 'load_controller', '--set-state', 'active', 'effort_controller'],
         output='screen'
     )
 
@@ -82,9 +116,20 @@ def generate_launch_description():
     # gz_model_path = PathJoinSubstitution([pkg_spaceros_gz_sim, 'models'])
 
     return LaunchDescription([
+        RegisterEventHandler(
+            event_handler=OnProcessExit(
+                target_action=spawn_entity_node,
+                on_exit=[load_joint_state_broadcaster],
+            )
+        ),
+        RegisterEventHandler(
+            event_handler=OnProcessExit(
+                target_action=load_joint_state_broadcaster,
+                on_exit=[load_joint_effort_controller],
+            )
+        ),
+        
         start_gazebo_cmd,
         robot_state_publisher_node,
-        spawn_entity_node
-        
-
+        spawn_entity_node,
     ])

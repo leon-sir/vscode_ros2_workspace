@@ -4,12 +4,22 @@
 # 一键安装Ros humble相关（如果ros依赖有问题）
 wget http://fishros.com/install -O fishros && . fishros
 
-# 运行`tools/lib_update.sh`脚本进行依赖安装
+# 运行`tools/lib_update.sh`脚本进行依赖安装(基于小鱼的rosdepc自动安装)
+rosdep install --from-paths src --ignore-src -r -y
+rosdepc install --from-paths src --ignore-src -r -y
 
-# 安装gazebo
-sudo apt-get install gazebo
+# 编译项目
+./build.sh
+# 安装新软件包
+colcon build
+
+# 安装gazebo仿真模型
 # 如要运行仿真，需将mesh文件复制到.gazebo/models/...的对应文件夹里
 ./tools/install_simulation.sh 
+# 检查urdf/xacro正确性
+xmllint --noout g1_23dof.ros2_control.xacro
+# 手动转urdf
+xacro g1_23dof.xacro > g1_23dof.urdf
 
 
 # 常用命令
@@ -18,12 +28,6 @@ sudo apt-get install gazebo
 source /opt/ros/humble/setup.bash
 # source install
 source install/setup.bash
-
-# 编译项目
-./build.sh
-# 安装新软件包
-colcon build
-
 
 # 启动 仿真
 ros2 launch simulation gazebo.launch.py 
